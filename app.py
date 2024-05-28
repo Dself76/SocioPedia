@@ -12,9 +12,9 @@ app = Flask(__name__)
 def get_db_connection():
     try:
         conn = mysql.connector.connect(
-            host=os.getenv('MYSQL_HOST', 'localhost'),
-            user=os.getenv('MYSQL_USER', 'dself1976'),
-            password=os.getenv('MYSQL_PASSWORD', 'Max123max123'),
+            host=os.getenv('MYSQL_HOST', ''),
+            user=os.getenv('MYSQL_USER', ''),
+            password=os.getenv('MYSQL_PASSWORD', ''),
             database=os.getenv('MYSQL_DB', 'newsociopedia'),
             auth_plugin='caching_sha2_password'
         )
