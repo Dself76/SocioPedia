@@ -12,10 +12,10 @@ app = Flask(__name__)
 def get_db_connection():
     try:
         conn = mysql.connector.connect(
-            host=os.getenv('MYSQL_HOST', ''),
-            user=os.getenv('MYSQL_USER', ''),
-            password=os.getenv('MYSQL_PASSWORD', ''),
-            database=os.getenv('MYSQL_DB', 'newsociopedia'),
+            host=os.getenv('MYSQL_HOST'),
+            user=os.getenv('MYSQL_USER'),
+            password=os.getenv('MYSQL_PASSWORD'),
+            database=os.getenv('MYSQL_DB'),
             auth_plugin='caching_sha2_password'
         )
         return conn
@@ -38,19 +38,21 @@ def register():
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         email = request.form['email']
-        hashed_password = generate_password_hash(request.form['password'])
+        password = request.form['password']  # You might hash this password before inserting
+        hashed_password = generate_password_hash(password)  # Hashing the password
         sex = request.form['sex']
         country = request.form['country']
         state = request.form['state']
+        county = request.form['county']  # This line was missing, add it to capture 'county' from the form
 
         conn = get_db_connection()
         if conn is not None:
             cursor = conn.cursor()
             try:
                 cursor.execute('''
-                    INSERT INTO users (first_name, last_name, email, password, sex, country, state) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)
-                ''', (first_name, last_name, email, hashed_password, sex, country, state))
+                    INSERT INTO users (first_name, last_name, email, password, sex, country, state, county) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                ''', (first_name, last_name, email, hashed_password, sex, country, state, county))
                 conn.commit()
             except mysql.connector.Error as err:
                 print(f"Failed inserting data into MySQL table: {err}")
@@ -62,6 +64,7 @@ def register():
         return redirect(url_for('home'))
 
     return render_template('regForm.html')
+
 
 def create_users_table():
     conn = get_db_connection()
