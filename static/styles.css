@@ -1,0 +1,88 @@
+body, html {
+    height: 100%; /* Ensure the full height for sticky sidebar */
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #e9f1fd;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Make sure header is positioned relatively */
+    z-index: 10; /* Higher z-index to keep header above sidebar */
+}
+
+.sidebar {
+    position: fixed; /* Fixed position to keep sidebar visible during scroll */
+    top: 60px; /* Adjust this value based on your header's actual height */
+    left: 0;
+    width: 10%; /* Adjust width to your preference */
+    height: calc(100vh - 60px); /* Subtract header height */
+    background-color: #e9f1fd;
+    padding: 20px;
+    border-right: 5px solid black; /* Thick black line as right border */
+}
+
+.sidebar img {
+    width: 100%; /* Ensure the image fits within the sidebar width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Space between header and image */
+    }
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-left: 10%; /* Push main content to the right, adjust according to sidebar width */
+}
+
+#comment-form {
+    width: 50%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+#comment-box {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4b86b4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.ad-container {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    position: relative;
+}
+
+.ad {
+    display: inline-block;
+    padding: 10px 20px;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    margin-right: 10px;
+     animation: scrollAd 30s linear infinite;
+}
+@keyframes scrollAd {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
