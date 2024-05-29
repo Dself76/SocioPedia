@@ -78,6 +78,7 @@ button {
     margin-right: 10px;
      animation: scrollAd 30s linear infinite;
 }
+/*if this doesnt work I need to check JS, even if it works leave JS for backup. check memeory before I go live though */
 @keyframes scrollAd {
     0% {
         transform: translateX(100%);
