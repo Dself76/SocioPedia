@@ -75,7 +75,6 @@
         <div>
             <label for="country">Country:</label>
             <select id="country" name="country">
-                <!-- Populate this list based on your requirements or dynamically from your server -->
                 <option value="usa">United States</option>
                 <option value="canada">Canada</option>
                 <option value="uk">United Kingdom</option>
@@ -84,15 +83,17 @@
         <div>
             <label for="state">State:</label>
             <select id="state" name="state">
-                <!-- Populate based on selected country in practice -->
                 <option value="california">California</option>
                 <option value="new_york">New York</option>
                 <option value="texas">Texas</option>
             </select>
         </div>
+        <div>
+            <label for="county">County:</label>
+            <input type="text" id="county" name="county" required>
+        </div>
         <button type="submit">Sign Up</button>
     </form>
-<script src="/static/scripts.js"></script>
-
+    <script src="/static/scripts.js"></script>
 </body>
 </html>
