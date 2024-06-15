@@ -1,40 +1,114 @@
 body, html {
-    height: 100%; /* Ensure the full height for sticky sidebar */
+    height: 100%;
     margin: 0;
     padding: 0;
 }
-
 
 header {
     background-color: #e9f1fd;
     padding: 20px;
     text-align: center;
-    position: relative; /* Make sure header is positioned relatively */
-    z-index: 10; /* Higher z-index to keep header above sidebar */
+    position: relative;
+    z-index: 10;
 }
 
 .sidebar {
-    position: fixed; /* Fixed position to keep sidebar visible during scroll */
-    top: 60px; /* Adjust this value based on your header's actual height */
+    position: fixed;
+    top: 60px;
     left: 0;
-    width: 10%; /* Adjust width to your preference */
-    height: calc(100vh - 60px); /* Subtract header height */
+    width: 250px; /* fixed width for larger screens */
+    height: calc(100vh - 60px);
     background-color: #e9f1fd;
     padding: 20px;
-    border-right: 5px solid black; /* Thick black line as right border */
+    border-right: 5px solid black;
+     z-index: 3;
 }
 
 .sidebar img {
-    width: 100%; /* Ensure the image fits within the sidebar width */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 10px; /* Space between header and image */
-    }
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
 
-main {
-    display: flex;
-    justify-content: center;
+.sidebar select, .sidebar button {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+
+}
+
+.sidebar button {
+    background-color: #4b86b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+
+.sidebar button:hover {
+    background-color: #357ab8;
+
+}
+
+.sidebar .guilty-link {
+    font-weight: bold; /* Makes text bold */
+    text-transform: uppercase; /* Capitalizes all letters */
+    color: Black; /* Sets the text color */
+    cursor: pointer; /* Cursor type when hovering over the link */
+}
+
+.sidebarR {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 250px; /* fixed width for larger screens */
+    height: calc(100vh - 60px);
+    background-color: #e9f1fd;
     padding: 20px;
-    margin-left: 10%; /* Push main content to the right, adjust according to sidebar width */
+    border-left: 5px solid black;
+     z-index: 3;
+}
+
+.sidebarR img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.sidebaR select, .sidebar button {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+
+}
+
+.sidebarR button {
+    background-color: #4b86b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+
+.sidebarR button:hover {
+    background-color: #357ab8;
+
+}
+
+.sidebarR .guilty-link {
+    font-weight: bold; /* Makes text bold */
+    text-transform: uppercase; /* Capitalizes all letters */
+    color: Black; /* Sets the text color */
+    cursor: pointer; /* Cursor type when hovering over the link */
+}
+/* this is everything not in the sidebar*/
+main {
+     margin-left: 500px;
+    padding: 20px;
+    position: relative;
+    z-index: 5;
 }
 
 #comment-form {
@@ -46,44 +120,106 @@ main {
 }
 
 #comment-box {
-    width: 100%;
-    height: 100px;
+    width: 100%; /* Adjusted for proper containment */
+    height: 25px;
     margin-bottom: 10px;
 }
 
-button {
-    background-color: #4b86b4;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    display: block;
-    width: 100%;
+/* Button Container Style */
+.button-container {
+    text-align: center; /* Center-align the buttons within the container */
+    padding: 10px 0; /* Add some padding above and below the buttons */
+}
+
+/* Specific Style for the Post Button */
+.button-container button {
+    background-color: Black ; /* Change the color of the button */
+    color: white; /* Text color(in the button 'Post' */
+    font-size: 16px; /* Increase font size for better readability, should be easier I think */
+    padding: 10px 20px; /* Padding for a bigger button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor indicates clickable */
+    transition: background-color 0.3s; /*  hover effect */
+}
+
+/* Hover effect for the Post Button */
+.button-container button:hover {
+    background-color: #2874a6; /* Darker shade on hover */
+}
+
+.top-nav {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.top-nav a {
+    background-color: #3498db;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    box-shadow: 0 5px #2874a6;
+    transition: all 0.3s ease;
+}
+
+.top-nav a:hover {
+    background-color: black;
+    box-shadow: 0 2px #1b4f72;
+    transform: translateY(3px);
 }
 
 .ad-container {
-    display: flex;
+    display: flex%;
     overflow: hidden;
     white-space: nowrap;
     background-color: #f1f1f1;
-    padding: 10px 0;
+    padding:  0;
     position: relative;
 }
 
 .ad {
     display: inline-block;
     padding: 10px 20px;
-    border-right: 1px solid #ddd;
+    border-right: 1000px solid #ddd;
     background-color: #fff;
     margin-right: 10px;
-     animation: scrollAd 30s linear infinite;
+    animation: scrollAd 5s linear infinite;
 }
-/*if this doesnt work I need to check JS, even if it works leave JS for backup. check memeory before I go live though */
+
 @keyframes scrollAd {
-    0% {
-        transform: translateX(100%);
+    from {
+        transform: translateX(100%); /* Starts from fully off-screen on the right */
     }
-    100% {
-        transform: translateX(-100%);
+    to {
+        transform: translateX(-100%); /* Ends fully off-screen on the left *
+    }
+}
+
+/* Responsive design adjustments ..STARTING POINT MAY NEED TO BE ADUJUSTED SO REMIND MYSELF TO START HERE AND MAKE
+SURE BUTTONS HAVE ENOUGH SPACE IN BETWEEN FOR TOUCH..DOUBLE CHECK THIS DOUBLE CHECK THIS */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        border-right: none;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    #comment-form {
+        width: 100%;
+    }
+
+    .top-nav a {
+        padding: 10px;
     }
 }
