@@ -2,38 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SocioPediaflask</title>
+    <title>SocioPedia</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
 <nav class="top-nav">
-        <!-- Navigation link for sign-up -->
-        <a href="/register">Sign Up Now!</a>
-    </nav>
-    <header>
-        <h1>SocioPedia</h1>
-        <p>Where everyone can be heard unimpeded...</p>
-        <div class="sidebar">
-  <h2>Trending</h2>
-            <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Descriptive Alt Text">
-    <!-- Input box for text below the image -->
-    <input type="text" placeholder="Enter your text here" style="width: 100%; padding: 5px; margin-top: 10px;">
-  </div>
-    </header>
+    <a href="/register">Sign Up Now!</a>
+</nav>
+<header>
+    <h1>SocioPedia</h1>
+    <p>Where everyone can be heard unimpeded...</p>
+
+    <div class="sidebar">
+        <h2>Trending</h2>
+        <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Election Debate">
+     <p>Check out what's happening in your Town!</p>
+        <a href="https://www.cnn.com/politics/live-news/trump-hush-money-trial-05-30-24/index.html" class="guilty-link"> OMG!! Guilty
+        <img src="{{ url_for('static', filename='images1/Guilty.png') }}" alt="Other Event">
+        </a>
+     <!--   <button onclick="goToLocation()">Your Location</button>  -->
+</div>
+
+<div class="sidebarR">
+        <h2>Trending</h2>
+        <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Election Debate">
+     <p>Check out what's happening in your Town!</p>
+        <a href="https://www.cnn.com/politics/live-news/trump-hush-money-trial-05-30-24/index.html" class="guilty-link2"> OMG!! Guilty
+        <img src="{{ url_for('static', filename='images1/Guilty.png') }}" alt="Other Event">
+        </a>
+     <!--   <button onclick="goToLocation()">Your Location</button>  -->
+</div>
+
+</header>
 <div class="ad-container">
-        <div class="ad">Place Advertising Here!!!</div>
-        <div class="ad">Place Advertising Here!!!</div>
-        <div class="ad">Place Advertising Here!!!</div>
-        <div class="ad">Place Advertising Here!!!</div>
-        <div class="ad">Place Advertising Here!!!</div>
-        <div class="ad">Place Advertising Here!!!</div>
+    <div class="ad">Place Advertising Here!!!</div>
+    <!-- More ads can be added here -->
+</div>
+  <!-- this is the new one delete if not cnterd-->
+<div class="posted-comments">
+
+        <!-- New posts will be appended here -->
     </div>
-    <main>
-        <form id="comment-form">
-            <textarea id="comment-box" placeholder="What's on your mind?"></textarea>
-            <button type="submit">Post</button>
-        </form>
-    </main>
+
+
+<main>
+    <!-- Container for displaying posted messages
+    <div class="posted-comments">
+
+         New posts will be appended here -->
+
+   <form id="comment-form">
+    <textarea id="comment-box" name="post_content" placeholder="What's on your mind?"></textarea>
+    <div class="button-container">
+        <label class="upload-button">
+            <input type="file" accept="image/*" style="display: none;" />
+            📷
+        </label>
+        <label class="upload-button">
+            <input type="file" accept="video/*" style="display: none;" />
+            📹
+        </label>
+        <button type="submit">Post</button>
+    </div>
+</form>
+<div id="posts-container">
+    <!-- Posts will be appended here -->
+</div>
+
+
+
+</main>
+
+
+
 </body>
 </html>
