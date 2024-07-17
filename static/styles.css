@@ -12,146 +12,123 @@ header {
     z-index: 10;
 }
 
-.sidebar {
+.sidebar-left {
     position: fixed;
     top: 60px;
     left: 0;
-    width: 250px; /* fixed width for larger screens */
+    width: 250px;
     height: calc(100vh - 60px);
     background-color: #e9f1fd;
     padding: 20px;
     border-right: 5px solid black;
-     z-index: 3;
+    z-index: 3;
 }
 
-.sidebar img {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-}
-
-.sidebar select, .sidebar button {
-    display: block;
-    margin: 10px 0;
-    padding: 5px;
-    width: 100%;
-
-}
-
-.sidebar button {
-    background-color: #4b86b4;
-    color: white;
-    border: none;
-    cursor: pointer;
-
-}
-
-.sidebar button:hover {
-    background-color: #357ab8;
-
-}
-
-.sidebar .guilty-link {
-    font-weight: bold; /* Makes text bold */
-    text-transform: uppercase; /* Capitalizes all letters */
-    color: Black; /* Sets the text color */
-    cursor: pointer; /* Cursor type when hovering over the link */
-}
-
-.sidebarR {
-    position: fixed;
-    top: 60px;
+.sidebar-right {
+       position: fixed;
+    top: 120px; /* Increased from 60px */
     right: 0;
-    width: 250px; /* fixed width for larger screens */
-    height: calc(100vh - 60px);
+    width: 250px;
+    height: calc(100vh - 120px); /* Adjusted to match new top value */
     background-color: #e9f1fd;
     padding: 20px;
     border-left: 5px solid black;
-     z-index: 3;
+    z-index: 3;
+    overflow-y: auto; /* Add scrollbar if content overflows */
 }
 
-.sidebarR img {
+
+.sidebar-left img, .sidebar-right img {
     width: 100%;
     height: auto;
     margin-top: 10px;
+    max-height-top:10px;
+    object-fit:cover;
 }
 
-.sidebaR select, .sidebar button {
+.sidebar-left select, .sidebar-left button,
+.sidebar-right select, .sidebar-right button {
     display: block;
     margin: 10px 0;
     padding: 5px;
     width: 100%;
-
 }
 
-.sidebarR button {
+.sidebar-left button, .sidebar-right button {
     background-color: #4b86b4;
     color: white;
     border: none;
     cursor: pointer;
-
 }
 
-.sidebarR button:hover {
+.sidebar-left button:hover, .sidebar-right button:hover {
     background-color: #357ab8;
-
 }
 
-.sidebarR .guilty-link {
-    font-weight: bold; /* Makes text bold */
-    text-transform: uppercase; /* Capitalizes all letters */
-    color: Black; /* Sets the text color */
-    cursor: pointer; /* Cursor type when hovering over the link */
+.sidebar-left .guilty-link, .sidebar-right .guilty-link {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: Black;
+    cursor: pointer;
 }
-/* this is everything not in the sidebar*/
+
 main {
-     margin-left: 500px;
+    margin-left: 270px;
+    margin-right: 270px;
     padding: 20px;
     position: relative;
     z-index: 5;
+    margin-top: 120px;
 }
 
 #comment-form {
-    width: 50%;
+
+    width: 70%;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin: 20px 0;
+    margin: 10px 10;
+    margin-left: 90px;
 }
 
 #comment-box {
-    width: 100%; /* Adjusted for proper containment */
+    width: 100%;
     height: 25px;
     margin-bottom: 10px;
 }
 
-/* Button Container Style */
 .button-container {
-    text-align: center; /* Center-align the buttons within the container */
-    padding: 10px 0; /* Add some padding above and below the buttons */
+    text-align: center;
+    padding: 10px 0;
 }
 
-/* Specific Style for the Post Button */
 .button-container button {
-    background-color: Black ; /* Change the color of the button */
-    color: white; /* Text color(in the button 'Post' */
-    font-size: 16px; /* Increase font size for better readability, should be easier I think */
-    padding: 10px 20px; /* Padding for a bigger button */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Cursor indicates clickable */
-    transition: background-color 0.3s; /*  hover effect */
+    background-color: Black;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Hover effect for the Post Button */
 .button-container button:hover {
-    background-color: #2874a6; /* Darker shade on hover */
+    background-color: #2874a6;
 }
 
 .top-nav {
     text-align: center;
     padding: 10px 0;
+        position: fixed; /* Fix the nav to the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 11; /* should be above other elements */
 }
+
+
 
 .top-nav a {
     background-color: #3498db;
@@ -173,11 +150,11 @@ main {
 }
 
 .ad-container {
-    display: flex%;
+    display: flex;
     overflow: hidden;
     white-space: nowrap;
     background-color: #f1f1f1;
-    padding:  0;
+    padding: 0;
     position: relative;
 }
 
@@ -192,26 +169,26 @@ main {
 
 @keyframes scrollAd {
     from {
-        transform: translateX(100%); /* Starts from fully off-screen on the right */
+        transform: translateX(100%);
     }
     to {
-        transform: translateX(-100%); /* Ends fully off-screen on the left *
+        transform: translateX(-100%);
     }
 }
 
-/* Responsive design adjustments ..STARTING POINT MAY NEED TO BE ADUJUSTED SO REMIND MYSELF TO START HERE AND MAKE
-SURE BUTTONS HAVE ENOUGH SPACE IN BETWEEN FOR TOUCH..DOUBLE CHECK THIS DOUBLE CHECK THIS */
 @media (max-width: 768px) {
-    .sidebar {
+    .sidebar-left, .sidebar-right {
         position: static;
         width: 100%;
         height: auto;
         padding: 10px;
         border-right: none;
+        border-left: none;
     }
 
     main {
         margin-left: 0;
+        margin-right: 0;
         padding: 10px;
     }
 
