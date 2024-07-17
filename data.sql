@@ -73,3 +73,16 @@ CREATE TABLE issues (
     PRIMARY KEY (issue_id),
     FOREIGN KEY (group_id) REFERENCES group_vote(group_id)
 );
+--this is just the basic of what I want to do and basic captures, will update when I have advertising to test
+CREATE TABLE event_logs (
+    event_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT,
+    event_type VARCHAR(50),
+    element_id VARCHAR(255),
+    page_url VARCHAR(255),
+    event_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    additional_info TEXT,
+    PRIMARY KEY (event_id),
+    FOREIGN KEY (user_id) REFERENCES users(id)  
+);
+
