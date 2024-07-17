@@ -7,21 +7,24 @@
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
-<nav class="top-nav">
-        <!-- Navigation link for sign-up -->
+    <nav class="top-nav">
         <a href="/register">Sign Up Now!</a>
     </nav>
     <header>
         <h1>SocioPedia</h1>
         <p>Where everyone can be heard unimpeded...</p>
-        <div class="sidebar">
-  <h2>Trending</h2>
-            <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Descriptive Alt Text">
-    <!-- Input box for text below the image -->
-    <input type="text" placeholder="Enter your text here" style="width: 100%; padding: 5px; margin-top: 10px;">
-  </div>
     </header>
-<div class="ad-container">
+    <div class="sidebar-left">
+        <h2>Trending</h2>
+        <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Descriptive Alt Text">
+        <input type="text" placeholder="Enter your text here" style="width: 100%; padding: 5px; margin-top: 10px;">
+    </div>
+    <div class="sidebar-right">
+        <h2>Voting</h2>
+        <img src="{{ url_for('static', filename='images1/votepic.png') }}" alt="Voting Image">
+        <input type="text" placeholder="Enter your vote here" style="width: 100%; padding: 5px; margin-top: 10px;">
+    </div>
+    <div class="ad-container">
         <div class="ad">Place Advertising Here!!!</div>
         <div class="ad">Place Advertising Here!!!</div>
         <div class="ad">Place Advertising Here!!!</div>
