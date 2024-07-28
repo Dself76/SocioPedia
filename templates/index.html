@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information about the document -->
     <meta charset="UTF-8">
     <title>SocioPediaflask</title>
+    <!-- Linking CSS for styling -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Linking JavaScript file for interactivity -->
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </head>
 <body>
+    <!-- Navigation bar at the top of the page -->
     <nav class="top-nav">
-        <a href="/register">Sign Up Now!</a>
+        <a href="/register">Sign Up Now!</a> <!-- Link for user registration -->
     </nav>
+
+    <!-- Header section containing the main heading and a description -->
     <header>
         <h1>SocioPedia</h1>
         <p>Where everyone can be heard unimpeded...</p>
     </header>
+
+    <!-- Left sidebar for trending topics -->
     <div class="sidebar-left">
         <h2>Trending</h2>
+        <!-- Displaying an image related to trending topics -->
         <img src="{{ url_for('static', filename='images1/elections1.png') }}" alt="Descriptive Alt Text">
+        <!-- Input field for user to enter text -->
         <input type="text" placeholder="Enter your text here" style="width: 100%; padding: 5px; margin-top: 10px;">
     </div>
+
+    <!-- Right sidebar for voting related content -->
     <div class="sidebar-right">
         <h2>Voting</h2>
+        <!-- Displaying an image related to voting -->
         <img src="{{ url_for('static', filename='images1/votepic.png') }}" alt="Voting Image">
+        <!-- Input field for user to enter their vote -->
         <input type="text" placeholder="Enter your vote here" style="width: 100%; padding: 5px; margin-top: 10px;">
     </div>
+
+    <!-- Container for advertisements -->
     <div class="ad-container">
+        <!-- Individual advertisement blocks -->
         <div class="ad">Place Advertising Here!!!</div>
         <div class="ad">Place Advertising Here!!!</div>
         <div class="ad">Place Advertising Here!!!</div>
@@ -32,9 +49,14 @@
         <div class="ad">Place Advertising Here!!!</div>
         <div class="ad">Place Advertising Here!!!</div>
     </div>
+
+    <!-- Main content area for user interaction -->
     <main>
+        <!-- Form for submitting comments -->
         <form id="comment-form">
+            <!-- Textarea for entering a comment -->
             <textarea id="comment-box" placeholder="What's on your mind?"></textarea>
+            <!-- Button to submit the comment -->
             <button type="submit">Post</button>
         </form>
     </main>
